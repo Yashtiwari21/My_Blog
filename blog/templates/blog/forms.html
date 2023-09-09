@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block content %}
+{% if msg %}
+    <script>alert('{{ msg }}');</script>
+{% endif %}
+    <h1>Enter Your Blog Details</h1>
+    <form action="{% url 'submit' %}" method="post">
+        {% csrf_token %}
+        <div>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Title" name="title" aria-label="Recipient's username" aria-describedby="basic-addon2">
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Author" name="author" aria-label="Author">
+</div>
+
+<div class="input-group">
+
+  <textarea placeholder="Enter Your Content Here." class="form-control" name="content" aria-label="With textarea"></textarea>
+</div><br>
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </div>
+    </form>
+{% endblock content %}
